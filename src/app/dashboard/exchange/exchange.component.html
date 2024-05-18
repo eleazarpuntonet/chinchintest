@@ -1,1 +1,35 @@
-<p>exchange works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Intercambio de Criptomonedas</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="exchangeForm" (ngSubmit)="performExchange()">
+      <mat-form-field appearance="outline" class="full-width-form-field">
+        <mat-label>Desde</mat-label>
+        <mat-select formControlName="fromCoin" (selectionChange)="getExchangeRate()">
+          <mat-option *ngFor="let coin of userWallet" [value]="coin">{{ coin.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width-form-field">
+        <mat-label>Hacia</mat-label>
+        <mat-select formControlName="toCoin" (selectionChange)="getExchangeRate()">
+          <mat-option *ngFor="let coin of coins" [value]="coin">{{ coin.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width-form-field">
+        <mat-label>Cantidad en USD</mat-label>
+        <input matInput type="number" formControlName="amount" (input)="onAmountChange()">
+      </mat-form-field>
+
+      <div *ngIf="exchangeRate" class="exchange-rate-info">
+        <p>{{ exchangeForm.value.toCoin.name }} = {{ exchangeForm.value.toCoin.current_price | currency }} </p>
+        <p>Tasa de cambio: 1 {{ exchangeForm.value.fromCoin.name }} = {{ exchangeRate }} {{ exchangeForm.value.toCoin.name }}</p>
+        <p>Recibirás: {{ exchangeForm.value.amount * exchangeRate }} {{ exchangeForm.value.toCoin.name }}</p>
+      </div>
+
+      <button mat-flat-button color="primary" [disabled]="exchangeForm.invalid">Intercambiar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

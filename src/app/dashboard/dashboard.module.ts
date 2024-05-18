@@ -9,6 +9,11 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullLayoutComponent } from '../shared/layouts/full/full-layout.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { WalletComponent } from './wallet/wallet.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from '../shared/header/header.component';
+import { SidebarComponent } from '../shared/sidebar/sidebar.component';
 
 
 
@@ -18,14 +23,18 @@ import { RouterModule } from '@angular/router';
     ExchangeComponent,
     TransactionsComponent,
     SettingsComponent,
-    FullLayoutComponent
+    FullLayoutComponent,
+    WalletComponent,
+    HeaderComponent,
+    SidebarComponent
   ],
   imports: [
     RouterModule,
     CommonModule,
-    SharedModule,
     MaterialModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

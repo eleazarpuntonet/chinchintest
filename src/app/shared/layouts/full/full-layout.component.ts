@@ -14,8 +14,8 @@ export class FullLayoutComponent implements OnInit {
 
     }
 
-      toggleSidebar() {
-        this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
+    toggleSidebar() {
+      this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
     }
 
     getSideBarState() {

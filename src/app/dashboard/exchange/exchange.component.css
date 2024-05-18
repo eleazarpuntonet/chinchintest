@@ -1,0 +1,9 @@
+.full-width-form-field {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px; /* Añadir margen inferior para separación */
+}
+
+.exchange-rate-info {
+  margin-top: 16px; /* Añadir margen superior para separación */
+}

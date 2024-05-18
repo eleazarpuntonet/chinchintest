@@ -11,14 +11,14 @@ import { SidebarService } from './../sidebar/sidebar.service'
 
 export class SidebarComponent implements OnInit {
 
-  
-    constructor(public sidebarservice: SidebarService
-      ) { }
 
-      getSideBarSate() {
-          return this.sidebarservice.getSidebarState();
-      }
-  
+    constructor(public sidebarservice: SidebarService
+    ) { }
+
+    getSideBarSate() {
+        return this.sidebarservice.getSidebarState();
+    }
+
     ngOnInit() {
     }
 

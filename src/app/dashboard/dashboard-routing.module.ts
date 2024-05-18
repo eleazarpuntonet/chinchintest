@@ -26,7 +26,8 @@ const routes: Routes = [
       {
         path: 'transactions',
         component: TransactionsComponent
-      }
+      },
+      { path: '',   redirectTo: 'panel', pathMatch: 'full' },
     ]
   }
 ];
